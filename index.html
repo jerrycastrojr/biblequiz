@@ -258,7 +258,7 @@
     function nextQuestion() {
       if (currentQuestionIndex >= filteredQuestions.length) {
         document.getElementById("message").innerText = `Quiz Completed! Your score is ${score}/${filteredQuestions.length}.`;
-        document.getElementById("end-buttons").style.display = "flex";
+        //document.getElementById("end-buttons").style.display = "flex";
         return;
       }
       const questionData = filteredQuestions[currentQuestionIndex];
