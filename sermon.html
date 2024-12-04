@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>FBservices</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Video Selector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #4267b2, #23487b);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        select {
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-preview {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        iframe {
+            margin-top: 20px;
+            border: none;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>PTR. GEROME CASTRO (Sermons) </h1>
+    <div class="container">
+        <select id="video-list" onchange="loadVideo()">
+            <option value="" data-title="">Select a video</option>
+          
+           
+           <option value="https://www.facebook.com/61552952685740/videos/1311849749973831" data-title="The Journey is PArt of the Gift -By: Ptr. Gerome Castro (December 1, 2024)">
+                The Journey is Part of the Gift
+            </option>
+            <option value="https://www.facebook.com/61552952685740/videos/467391499720600" data-title="Words are not Enough - By: Ptr. Gerome Castro (December 1, 2024)">
+                Words are not Enough
+            </option>
+          <option value="https://www.facebook.com/61552952685740/videos/955874506361241" data-title="Kingdom Principles of Giving -By: Ptr. Gerome Castro (November 27, 2024)">
+                Kingdom Principles of Giving
+            </option>
+          <option value="https://www.facebook.com/61552952685740/videos/597421186056681" data-title="The Perfect Answer to a King's Question -By: Ptr. Gerome Castro (November 20, 2024)">
+                The Perfect Answer to a King's Question
+            </option>
+          <option value="https://www.facebook.com/61552952685740/videos/1095291378631698" data-title=" The First Priority Principle of the Kingdom of God -By: Ptr. Gerome Castro (November 17, 2024)">
+                 The First Priority Principle of the Kingdom of God
+            </option>
+           <option value="https://www.facebook.com/61552952685740/videos/8045769152190165" data-title=" Life Transforming Wisdom from the Wisest Men in the Bible -By: Ptr. Gerome Castro (November 10, 2024)">
+                 Life Transforming Wisdom from the Wisest Men in the Bible
+            </option>
+          <option value="https://www.facebook.com/61552952685740/videos/856318126368018" data-title=" Great Lessons from the Smartest Women in the Bible -By: Ptr. Gerome Castro (November 10, 2024)">
+                 Great Lessons from the Smartest Women in the Bible
+            </option>
+          <option value="https://www.facebook.com/61552952685740/videos/863390132592785" data-title=" Kingdom Perspective that can Totally Change Our Outloos in Giving -By: Ptr. Gerome Castro (November 6, 2024)">
+                 Kingdom Perspective that can Totally Change Our Outloos in Giving
+            </option>
+           <option value="https://www.facebook.com/61552952685740/videos/570934992140387" data-title=" The Doctrine of Death -By: Ptr. Gerome Castro (November 3, 2024)">
+                 The Doctrine of Death
+            </option>
+           <option value="https://www.facebook.com/61552952685740/videos/1764582974309847" data-title=" Preparation for Death -By: Ptr. Gerome Castro (November 3, 2024)">
+                 Preparation for Death
+            </option>
+           <option value="https://www.facebook.com/61552952685740/videos/1326548365150357" data-title=" The Second Institution Established by God -By: Ptr. Gerome Castro (October 30, 2024)">
+                 The Second Institution Established by God
+            </option>
+          <option value="https://www.facebook.com/61552952685740/videos/1468332913860032" data-title=" The Mistery of the Kingdom of God -By: Ptr. Gerome Castro (October 27, 2024)">
+                The Mistery of the Kingdom of God
+            </option>
+          <option value="https://www.facebook.com/61552952685740/videos/530152269907968" data-title=" Understanding Kingdom Principles with Democratic Concept -By: Ptr. Gerome Castro (October 23, 2024)">
+                Understanding Kingdom Principles with Democratic Concept
+            </option>
+           <option value="www.facebook.com/61552952685740" data-title=" Anniversary Preachings -By: Ptr. Gerome / Pr Louei (October 20, 2024)">
+                Anniversary Preachings
+            </option>
+          
+          
+            <option value="https://www.facebook.com/61552952685740/videos/2148573152194531" data-title="Choose Generational Blessings - By: Ptr. Gerome Castro (August 18, 2024)">
+                Choose Generational Blessings
+            </option>
+           
+         
+          
+        </select>
+        <div class="video-preview" id="video-title">No video selected</div>
+        <iframe id="video-frame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <footer>Built with ❤️ by Jerry C.</footer>
+
+    <script>
+        function loadVideo() {
+            const videoList = document.getElementById('video-list');
+            const selectedVideo = videoList.value;
+            const videoFrame = document.getElementById('video-frame');
+            const videoTitle = document.getElementById('video-title');
+            const selectedOption = videoList.options[videoList.selectedIndex];
+
+            if (selectedVideo) {
+                videoFrame.src = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(selectedVideo)}&show_text=0&width=600`;
+                videoTitle.textContent = selectedOption.getAttribute('data-title');
+            } else {
+                videoFrame.src = "";
+                videoTitle.textContent = "No video selected";
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
