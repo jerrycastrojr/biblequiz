@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>FBservices</title>
+  <title>Untitled</title>
   
 
 </head>
@@ -10,6 +10,7 @@
 <!-- partial:index.partial.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,9 +76,32 @@
             border: none;
             width: 100%;
             max-width: 600px;
-            height: 400px;
+            height: 350px;
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ff7b00;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #ff9b33;
         }
 
         footer {
@@ -87,18 +111,21 @@
         }
     </style>
 </head>
+
 <body>
-    <h1>PTR. GEROME CASTRO (Sermons) </h1>
+    <h1>PTR. GEROME CASTRO (Sermons)</h1>
     <div class="container">
         <select id="video-list" onchange="loadVideo()">
             <option value="" data-title="">Select a video</option>
           
-           
-           <option value="https://www.facebook.com/61552952685740/videos/1311849749973831" data-title="The Journey is PArt of the Gift -By: Ptr. Gerome Castro (December 1, 2024)">
+           <option value="https://www.facebook.com/61552952685740/videos/1286404845832694" data-title="Petitions  in the Courtroom of the Kingdom Judge -By: Ptr. Gerome Castro (December 4, 2024)">
+               Petitions  in the Courtroom of the Kingdom Judge
+            </option>
+                       <option value="https://www.facebook.com/61552952685740/videos/1311849749973831" data-title="The Journey is PArt of the Gift -By: Ptr. Gerome Castro (December 1, 2024)">
                 The Journey is Part of the Gift
             </option>
-            <option value="https://www.facebook.com/61552952685740/videos/467391499720600" data-title="Words are not Enough - By: Ptr. Gerome Castro (December 1, 2024)">
-                Words are not Enough
+            <option value="https://www.facebook.com/61552952685740/videos/467391499720600" data-title="Put Flesh to Your Word - By: Ptr. Gerome Castro (December 1, 2024)">
+                Put Flesh to Your Word
             </option>
           <option value="https://www.facebook.com/61552952685740/videos/955874506361241" data-title="Kingdom Principles of Giving -By: Ptr. Gerome Castro (November 27, 2024)">
                 Kingdom Principles of Giving
@@ -141,12 +168,20 @@
             <option value="https://www.facebook.com/61552952685740/videos/2148573152194531" data-title="Choose Generational Blessings - By: Ptr. Gerome Castro (August 18, 2024)">
                 Choose Generational Blessings
             </option>
-           
-         
-          
+
+            <!-- Add other videos here -->
         </select>
         <div class="video-preview" id="video-title">No video selected</div>
         <iframe id="video-frame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="controls">
+            <button onclick="toggleFullScreen()">Full Screen</button>
+            
+          <button onclick="increaseVolume()">+</button>
+          <button onclick="toggleMusic()">Background Music</button>
+            
+            <button onclick="decreaseVolume()">-</button>
+          <button onclick="exitApplication()">Exit</button>
+        </div>
     </div>
     <footer>Built with ❤️ by Jerry C.</footer>
 
@@ -166,8 +201,57 @@
                 videoTitle.textContent = "No video selected";
             }
         }
+
+        function toggleFullScreen() {
+            const iframe = document.getElementById('video-frame');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+
+        function exitApplication() {
+            window.close();
+        }
+
+        function toggleMusic() {
+            let audio = document.getElementById('background-music');
+            if (!audio) {
+                audio = document.createElement('audio');
+                audio.id = 'background-music';
+                audio.src = 'https://jerrycastrojr.github.io/biblequiz/i surrender all.mp3'; // Replace with the path to your music file
+                audio.loop = true;
+                document.body.appendChild(audio);
+            }
+
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function increaseVolume() {
+            const audio = document.getElementById('background-music');
+            if (audio && audio.volume < 1.0) {
+                audio.volume = Math.min(1.0, audio.volume + 0.1);
+            }
+        }
+
+        function decreaseVolume() {
+            const audio = document.getElementById('background-music');
+            if (audio && audio.volume > 0.0) {
+                audio.volume = Math.max(0.0, audio.volume - 0.1);
+            }
+        }
     </script>
 </body>
+
 </html>
 <!-- partial -->
   
